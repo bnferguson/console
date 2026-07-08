@@ -10956,7 +10956,7 @@ type WorkbenchToolGithubConnectionAttributes struct {
 	URL *string `json:"url,omitempty"`
 	// optional GitHub personal access token or fine-grained token (omit when using GitHub App credentials)
 	AccessToken *string `json:"accessToken,omitempty"`
-	// optional native tool subset: issues, pull_requests, repos, default/all, or omit for all tools
+	// optional native tool subset: issues, pull_requests, repos, security, default/all, or omit for all tools
 	Toolset *string `json:"toolset,omitempty"`
 	// GitHub App ID (use with installation_id and private_key instead of access_token)
 	AppID *string `json:"appId,omitempty"`
