@@ -1056,6 +1056,14 @@ addons:
   helm_values: clusterName=example
   chart_name: aws-load-balancer-controller
   versions:
+  - version: 3.4.2
+    kube: ['1.35', '1.34', '1.33', '1.32', '1.31', '1.30', '1.29', '1.28', '1.27',
+      '1.26', '1.25', '1.24', '1.23', '1.22', '1.21', '1.20', '1.19']
+    requirements: []
+    incompatibilities: []
+    summary: null
+    chart_version: 3.4.2
+    images: ['public.ecr.aws/eks/aws-load-balancer-controller:v3.4.2']
   - version: 3.4.0
     kube: ['1.35', '1.34', '1.33', '1.32', '1.31', '1.30', '1.29', '1.28', '1.27',
       '1.26', '1.25', '1.24', '1.23', '1.22', '1.21', '1.20', '1.19']
@@ -1594,6 +1602,103 @@ addons:
   git_url: https://repo1.dso.mil/big-bang/bigbang
   release_url: https://repo1.dso.mil/big-bang/bigbang/-/releases/{vsn}
   versions:
+  - version: 3.28.0
+    kube: ['1.35']
+    requirements:
+    - name: Alloy
+      version: 4.1.7-bb.0
+    - name: Anchore Enterprise
+      version: 3.25.0-bb.0
+    - name: Argocd
+      version: 9.7.0-bb.0
+    - name: Authservice
+      version: 1.1.5-bb.5
+    - name: Bbctl
+      version: 3.0.1-bb.3
+    - name: Eck Operator
+      version: 3.4.1-bb.0
+    - name: Elasticsearch Kibana
+      version: 1.39.0-bb.0
+    - name: External Secrets Operator
+      version: 1.3.1-bb.2
+    - name: Fluentbit
+      version: 0.57.3-bb.0
+    - name: Fortify
+      version: 26.2.0-bb.0
+    - name: Gatekeeper
+      version: 3.22.2-bb.1
+    - name: Gateway Api
+      version: 1.5.1-bb.1
+    - name: Gitlab
+      version: 9.11.7-bb.0
+    - name: Gitlab Runner
+      version: 0.88.3-bb.1
+    - name: Grafana
+      version: 10.5.15-bb.3
+    - name: Harbor
+      version: 1.19.1-bb.0
+    - name: Headlamp
+      version: 0.40.0-bb.1
+    - name: Istio Cni
+      version: 1.30.2-bb.0
+    - name: Istio Crds
+      version: 1.30.2-bb.0
+    - name: Istio Gateway
+      version: 1.30.2-bb.0
+    - name: Istiod
+      version: 1.30.2-bb.0
+    - name: Keycloak
+      version: 7.2.0-bb.2
+    - name: Kiali
+      version: 2.28.0-bb.0
+    - name: Kyverno
+      version: 3.8.1-bb.4
+    - name: Kyverno Policies
+      version: 3.3.4-bb.65
+    - name: Kyverno Reporter
+      version: 3.7.4-bb.3
+    - name: Loki
+      version: 6.55.0-bb.2
+    - name: Mattermost
+      version: 11.8.2-bb.0
+    - name: Mattermost Operator
+      version: 1.25.7-bb.0
+    - name: Metrics Server
+      version: 3.13.0-bb.6
+    - name: Mimir
+      version: 6.0.6-bb.3
+    - name: Minio
+      version: 7.1.1-bb.19
+    - name: Minio Operator
+      version: 7.1.1-bb.6
+    - name: Monitoring
+      version: 85.3.3-bb.2
+    - name: Neuvector
+      version: 2.10.3-bb.0
+    - name: Prometheus Operator Crds
+      version: 28.0.1-bb.0
+    - name: Renovate
+      version: 46.31.6-bb.5
+    - name: Sonarqube
+      version: 2026.3.1-bb.1
+    - name: Tempo
+      version: 2.1.0-bb.1
+    - name: Thanos
+      version: 17.4.0-bb.2
+    - name: Twistlock
+      version: 0.27.0-bb.2
+    - name: Vault
+      version: 0.33.0-bb.2
+    - name: Velero
+      version: 12.1.0-bb.1
+    - name: Wrapper
+      version: 0.4.15
+    - name: Ztunnel
+      version: 1.30.2-bb.0
+    incompatibilities: []
+    summary: null
+    chart_version: 3.28.0
+    images: []
   - version: 3.27.0
     kube: ['1.35']
     requirements:
@@ -10454,12 +10559,12 @@ addons:
   release_url: https://github.com/aws/amazon-vpc-cni-k8s/releases/tag/v{vsn}
   helm_repository_url: https://aws.github.io/eks-charts
   versions:
-  - version: 1.22.2
+  - version: 1.22.3
     kube: ['1.30', '1.29', '1.28', '1.27', '1.26', '1.25', '1.24', '1.23']
     requirements: []
     incompatibilities: []
     summary: null
-    chart_version: 1.22.2
+    chart_version: 1.22.3
   - version: 1.22.1
     kube: ['1.30', '1.29', '1.28', '1.27', '1.26', '1.25', '1.24', '1.23']
     requirements: []
@@ -10507,6 +10612,7 @@ addons:
     incompatibilities: []
     summary: null
     chart_version: 1.16.0
+    images: []
   - version: 1.15.0
     kube: ['1.30', '1.29', '1.28', '1.27', '1.26', '1.25', '1.24', '1.23']
     requirements: []
@@ -10801,6 +10907,14 @@ addons:
   helm_repository_url: https://charts.jetstack.io
   eolApiSlug: cert-manager
   versions:
+  - version: 1.21.0
+    kube: ['1.36', '1.35', '1.34', '1.33']
+    requirements: []
+    incompatibilities: []
+    summary: null
+    chart_version: 1.21.0
+    images: ['quay.io/jetstack/cert-manager-cainjector:v1.21.0', 'quay.io/jetstack/cert-manager-controller:v1.21.0',
+      'quay.io/jetstack/cert-manager-startupapicheck:v1.21.0', 'quay.io/jetstack/cert-manager-webhook:v1.21.0']
   - version: 1.20.0
     kube: ['1.35', '1.34', '1.33', '1.32']
     requirements: []
@@ -13233,42 +13347,14 @@ addons:
     images: ['quay.io/cilium/cilium:v1.13.7@sha256:3b084617febd708aa9d88de2472c6faf9aee71884112725e8511bca628ce5cf1',
       'quay.io/cilium/operator-generic:v1.13.7@sha256:0ec1bc5d9ecc444a890aaa2e0f397e77d15f1832910f1c20be3adc535688baba']
     eolAt: '2024-07-24'
-  - version: 1.13.4
+  - version: 1.13.5
     kube: ['1.27', '1.26', '1.25']
     requirements: []
     incompatibilities: []
-    summary:
-      helm_changes: '- **Potential Helm value / flag to be aware of (new in 1.13.4):**
-        `enable-ipsec-key-watcher` (agent flag). This allows disabling the IPsec key
-        watcher (key rotation then requires an agent restart).
-
-        - **Helm/chart validation tightened:** Helm will fail if `kube-proxy-replacement`
-        is not valid; additionally, invalid combinations are rejected (e.g., `enable-host-legacy-routing=false`
-        with `kube-proxy-replacement=partial`).
-
-        - **Ingress Helm validation typo fixed** (no action expected unless you were
-        hitting validation issues).
-
-        '
-      chart_updates: [Helm install/upgrade behavior is stricter around kube-proxy-replacement
-          validity checks (upgrade may fail early if values are inconsistent)., Documentation
-          helm values generation now works on arm64 (docs/build tooling).]
-      features: ['v1.13.0 introduced several new capabilities (not added in 1.13.4):
-          LB-IPAM for LoadBalancer IP management; BGP Control Plane announcement of
-          LoadBalancer services; IPv6 BIG TCP; partial SCTP support; Gateway API v0.5.1
-          support; CiliumNodeConfig per-node configuration overrides; SNI-based TLS
-          enforcement in CiliumNetworkPolicy; and initial datapath support for Cilium
-          mTLS.', v1.13.4 adds a new agent flag to control IPsec key watcher behavior
-          (`enable-ipsec-key-watcher`).]
-      breaking_changes: ['**Do not upgrade to v1.13.4 if you are using IPsec** (release
-          note warning). The release includes multiple IPsec-related fixes, but upstream
-          explicitly warns against upgrading due to IPsec issues.', "Helm/agent validation\
-          \ is stricter for kube-proxy replacement settings; upgrades that previously\
-          \ \u201Cworked\u201D with inconsistent values may now fail until values\
-          \ are corrected."]
-    chart_version: 1.13.4
-    images: ['quay.io/cilium/cilium:v1.13.4@sha256:bde8800d61aaad8b8451b10e247ac7bdeb7af187bb698f83d40ad75a38c1ee6b',
-      'quay.io/cilium/operator-generic:v1.13.4@sha256:09ab77d324ef4d31f7d341f97ec5a2a4860910076046d57a2d61494d426c6301']
+    summary: null
+    chart_version: 1.13.5
+    images: ['quay.io/cilium/cilium:v1.13.5@sha256:e02744b4413824093d25a6fb35e2e418f7301e55825fa53a8e1943fe7e9e5aef',
+      'quay.io/cilium/operator-generic:v1.13.5@sha256:d77f3e1472725b3c28b5d88d6a49c7fcba3072c0c08a26e2e16c1e9139c96207']
     eolAt: '2024-07-24'
   - version: 1.13.0
     kube: ['1.26', '1.25', '1.24']
@@ -13365,46 +13451,14 @@ addons:
     chart_version: 1.12.14
     images: ['quay.io/cilium/cilium:v1.12.14@sha256:a54b28a5c15e14f3491c772ca7cfa86266a2b1efb85326bc1ab6c95b91aeaa77',
       'quay.io/cilium/operator-generic:v1.12.14@sha256:b9ce66384c74f79a2982ef3a4602f649d49e9b8b79b58db5faa344c7451cb7c9']
-  - version: 1.12.11
+  - version: 1.12.12
     kube: ['1.27', '1.26', '1.25']
     requirements: []
     incompatibilities: []
-    summary:
-      helm_changes: "## Helm values / chart-behavior changes to review\n\n- **kube-proxy\
-        \ replacement validation becomes stricter (v1.12.11):** Helm install/upgrade\
-        \ now **fails** if `kubeProxyReplacement` is set to an invalid value. Verify\
-        \ your current `values.yaml` uses a supported value (commonly `disabled`,\
-        \ `partial`, or `strict` depending on your deployment).\n- **Ingress Helm\
-        \ validation typo fixed (v1.12.11):** If you use the integrated Ingress controller,\
-        \ there is a chart-side validation fix; re-run `helm template`/`helm upgrade\
-        \ --dry-run` to catch any values issues.\n- **New/changed knobs introduced\
-        \ in 1.12 baseline (from v1.12.0 notes):**\n  - **Ingress controller values**\
-        \ and **IngressClass creation** were added in 1.12.\n  - **Hubble Relay/UI\
-        \ service exposure options** (service type / nodePort) were added.\n  - **TLS-related\
-        \ Helm options** were reorganized for 1.12 (ensure your TLS settings match\
-        \ the 1.12 upgrade docs).\n  - **`bpf-root`** value was added.\n  - **Linux\
-        \ nodeSelectors** were set for nodeinit/preflight.\n  - **Prometheus ports\
-        \ default changed** to reserved Cilium ports (if you scrape metrics, confirm\
-        \ your ServiceMonitor/Prometheus config matches).\n\n> Note: You only provided\
-        \ app release notes for 1.12.0 and 1.12.11; intermediate chart/value changes\
-        \ between 1.12.1\u20131.12.10 are not visible here, so validate with `helm\
-        \ diff` against your current values."
-      chart_updates: ['Integrated Ingress Controller introduced in 1.12 (agent + chart
-          wiring, including IngressClass support).', 'Chart creates/adjusts resources
-          for Hubble (Relay/UI metrics, service exposure options).', 'Chart behavior
-          tightened in 1.12.11: Helm upgrade/install fails fast on invalid `kubeProxyReplacement`
-          value.', Validation fix for Ingress-related chart logic in 1.12.11.]
-      features: [Deny Policies are promoted from beta to stable by v1.12.11 (policy
-          behavior/feature maturity change)., 'Cilium 1.12 introduced the integrated
-          Ingress Controller and initial Service Mesh support (Envoy/CEC), plus multiple
-          networking/IPAM enhancements (e.g., egress gateway stable, BGP control plane,
-          NAT46/64).']
-      breaking_changes: [Do **not** upgrade to v1.12.11 if you are using **IPsec**
-          (explicit release warning)., 'If your Helm values contain an invalid `kubeProxyReplacement`
-          setting, upgrades may now **fail** at Helm time due to new validation (v1.12.11).']
-    chart_version: 1.12.11
-    images: ['quay.io/cilium/cilium:v1.12.11@sha256:3fd8d9a6130783c245d90658ca379a7db88f249ec69464450fb53490cfbd7c55',
-      'quay.io/cilium/operator-generic:v1.12.11@sha256:8fad1da87c9f308c21ad54784c91c0fc92dc620e2781561473e2c8e4f871eb29']
+    summary: null
+    chart_version: 1.12.12
+    images: ['quay.io/cilium/cilium:v1.12.12@sha256:3cafa76253881a77c3613ed2967776b83b81fcdffcd2a90dae13b175297b92dd',
+      'quay.io/cilium/operator-generic:v1.12.12@sha256:fb2b1ef65fda0f102ef533f354a5cc462076bd70b281ce0eee71fc34badf551a']
   - version: 1.12.0
     kube: ['1.26', '1.25', '1.24']
     requirements: []
@@ -13467,23 +13521,14 @@ addons:
     chart_version: 1.12.0
     images: ['quay.io/cilium/cilium:v1.12.0@sha256:079baa4fa1b9fe638f96084f4e0297c84dd4fb215d29d2321dcbe54273f63ade',
       'quay.io/cilium/operator-generic:v1.12.0@sha256:bb2a42eda766e5d4a87ee8a5433f089db81b72dd04acf6b59fcbb445a95f9410']
-  - version: 1.11.18
+  - version: 1.11.19
     kube: ['1.27', '1.26', '1.25']
     requirements: []
     incompatibilities: []
-    summary:
-      helm_changes: ''
-      chart_updates: []
-      features: ['Deny Policies are promoted from beta to stable in v1.11.18, which
-          may affect how you document and rely on deny rules in CiliumNetworkPolicy/CiliumClusterwideNetworkPolicy.',
-        New agent flag `enable-ipsec-key-watcher` allows disabling the IPsec key watcher
-          so IPsec key rotation only takes effect after an agent restart (opt-in behavior
-          change for operators who set it).]
-      breaking_changes: [Do not upgrade to v1.11.18 if you are using IPsec; the release
-          notes explicitly warn against upgrading in IPsec deployments.]
-    chart_version: 1.11.18
-    images: ['quay.io/cilium/cilium:v1.11.18@sha256:dda94072012c328fe0d00838f2f7d8ead071019d1d1950ecf44060640bf93cae',
-      'quay.io/cilium/operator-generic:v1.11.18@sha256:bccdcc3036b38581fd44bf7154255956a58d7d13006aae44f419378911dec986']
+    summary: null
+    chart_version: 1.11.19
+    images: ['quay.io/cilium/cilium:v1.11.19@sha256:f71c973a9159158704012e1a065a3d484353ff4c2b4e05e10a03382f055adad4',
+      'quay.io/cilium/operator-generic:v1.11.19@sha256:79b622067205037489dcfc3280a2b9a19b0ede9a1c83eb5b3064926fa6af6a23']
   - version: 1.11.6
     kube: ['1.26', '1.25', '1.24']
     requirements: []
@@ -16815,6 +16860,7 @@ addons:
     requirements: []
     incompatibilities: []
     summary: null
+    eolAt: '2026-06-30'
   - version: 2.5.0
     kube: ['1.35', '1.34', '1.33', '1.32', '1.31', '1.30', '1.29']
     requirements: []
@@ -17995,6 +18041,13 @@ addons:
   helm_repository_url: oci://public.ecr.aws/karpenter/karpenter
   helm_values: settings.clusterName=example
   versions:
+  - version: 1.13.0
+    kube: ['1.36', '1.35', '1.34', '1.33', '1.32', '1.31', '1.30']
+    requirements: []
+    incompatibilities: []
+    summary: null
+    chart_version: 1.13.0
+    images: ['public.ecr.aws/karpenter/controller:1.13.0@sha256:ea731b0cd813add8b2947a76bfe861c38069d85922b01d0c1647d1466279b7fe']
   - version: 1.9.0
     kube: ['1.35', '1.34', '1.33', '1.32', '1.31', '1.30']
     requirements: []
@@ -18341,6 +18394,17 @@ addons:
   helm_repository_url: https://prometheus-community.github.io/helm-charts
   chart_changelog_url: https://raw.githubusercontent.com/prometheus-community/helm-charts/refs/heads/main/charts/kube-prometheus-stack/UPGRADE.md
   versions:
+  - version: 87.15.2
+    kube: ['1.35', '1.34', '1.33', '1.32', '1.31', '1.30', '1.29', '1.28', '1.27',
+      '1.26', '1.25']
+    requirements: []
+    incompatibilities: []
+    summary: null
+    chart_version: 87.15.2
+    images: ['docker.io/grafana/grafana:13.1.0', 'ghcr.io/jkroepke/kube-webhook-certgen:1.8.4',
+      'quay.io/kiwigrid/k8s-sidecar:2.8.1', 'quay.io/prometheus-operator/prometheus-operator:v0.92.1',
+      'quay.io/prometheus/alertmanager:v0.33.1', 'quay.io/prometheus/node-exporter:v1.12.0-distroless',
+      'quay.io/prometheus/prometheus:v3.13.1-distroless', 'registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.19.1']
   - version: 87.5.0
     kube: ['1.35', '1.34', '1.33', '1.32', '1.31', '1.30', '1.29', '1.28', '1.27',
       '1.26', '1.25']
@@ -19865,6 +19929,7 @@ addons:
           together may behave differently.]
     chart_version: 3.5.0
     images: []
+    eolAt: '2026-04-29'
   - version: 1.14.0
     kube: ['1.32', '1.31', '1.30', '1.29']
     requirements: []
@@ -22100,36 +22165,12 @@ addons:
   helm_repository_url: https://traefik.github.io/charts
   eolApiSlug: traefik
   versions:
-  - version: 3.7.5
+  - version: 3.7.6
     kube: ['1.35', '1.34', '1.33', '1.32']
     requirements: []
     incompatibilities: []
-    summary:
-      helm_changes: ''
-      chart_updates: []
-      features: ['Ingress-NGINX provider gained many new supported annotations and
-          a metamodel-based config generator, including rate/connection limiting,
-          auth options, buffering/canary redirects, rewrites, custom headers, and
-          entrypoint selection.', Gateway API improvements include support for multiple
-          certificateRefs on listeners and secret-based caCertificateRefs for BackendTLSPolicy.,
-        'New routing/config capabilities: provider routing precedence setting, wildcard
-          Host/HostSNI matchers, service-level middleware/HTTP backend filters, TraefikService
-          failover enhancements, and ServersTransport cipher suite configuration.',
-        'Security/operational enhancements include stricter encoded-character handling
-          (opt-in controls), better access logging for rejected requests, additional
-          forwardAuth options, and retries based on status codes/timeouts/non-idempotent
-          methods.', 'UI/observability updates: dashboard improvements (certificates
-          view, naming), extra Kubernetes ingress log fields, and OTel/access log
-          enhancements.']
-      breaking_changes: [ForwardAuth.TrustForwardHeader was deprecated in v3.7.0;
-          plan to migrate configurations away from it before a future removal., Security
-          behavior around encoded/suspicious characters was tightened and made opt-in
-          via settings; this can change request acceptance/normalization compared
-          to previous behavior., Ingress-NGINX provider behavior changed significantly
-          (metamodel refactor + stricter validation options like strictValidatePathType);
-          some ingresses may be skipped or routed differently when referenced secrets/config
-          cannot be resolved.]
-    chart_version: 41.0.1
+    summary: null
+    chart_version: 41.0.2
     images: []
   - version: 3.7.0
     kube: ['1.35', '1.34', '1.33', '1.32']
@@ -22195,6 +22236,7 @@ addons:
           to >=3.5 (including 3.6).']
     chart_version: 37.3.0
     images: ['docker.io/traefik:v3.6.0']
+    eolAt: '2026-05-05'
   - version: 3.5.0
     kube: ['1.35', '1.34', '1.33', '1.32']
     requirements: []
@@ -22717,6 +22759,14 @@ addons:
   chart_name: gatekeeper
   eolApiSlug: gatekeeper
   versions:
+  - version: 3.23.0
+    kube: ['1.36', '1.35', '1.34']
+    requirements: []
+    incompatibilities: []
+    summary: null
+    chart_version: 3.23.0
+    images: ['curlimages/curl:8.20.0', 'openpolicyagent/gatekeeper-crds:v3.23.0',
+      'openpolicyagent/gatekeeper:v3.23.0']
   - version: 3.22.2
     kube: ['1.36', '1.35', '1.34']
     requirements: []
@@ -22814,6 +22864,7 @@ addons:
     chart_version: 3.21.1
     images: ['curlimages/curl:8.12.0', 'openpolicyagent/gatekeeper-crds:v3.21.1',
       'openpolicyagent/gatekeeper:v3.21.1']
+    eolAt: '2026-07-09'
   - version: 3.21.0
     kube: ['1.34', '1.33', '1.32']
     requirements: []
@@ -22859,6 +22910,7 @@ addons:
     chart_version: 3.21.0
     images: ['curlimages/curl:8.12.0', 'openpolicyagent/gatekeeper-crds:v3.21.0',
       'openpolicyagent/gatekeeper:v3.21.0']
+    eolAt: '2026-07-09'
   - version: 3.20.1
     kube: ['1.34', '1.33', '1.32']
     requirements: []
@@ -24086,40 +24138,14 @@ addons:
   helm_repository_url: https://argoproj.github.io/argo-helm
   eolApiSlug: argocd
   versions:
-  - version: 3.4.4
+  - version: 3.4.5
     kube: ['1.36', '1.35', '1.34']
     requirements: []
     incompatibilities: []
-    summary:
-      helm_changes: "- **If you use ApplicationSet Cluster Generator filtering by\
-        \ Kubernetes version:** Argo CD 3.4 aligns Kubernetes version parsing with\
-        \ Helm 3.19 behavior. If you rely on `argocd.argoproj.io/auto-label-cluster-info`\
-        \ on cluster secrets, update consumers to read `argocd.argoproj.io/kubernetes-version`\
-        \ in **`vMajor.Minor.Patch`** format (e.g., `v1.30.2`) instead of the prior\
-        \ `Major.Minor` format.\n  - Upgrade guide: https://argo-cd.readthedocs.io/en/stable/operator-manual/upgrading/3.3-3.4/#cluster-version-format-change\n\
-        \n- **Helm source behavior improvements to be aware of (no action required\
-        \ unless you depend on old behavior):**\n  - `valueFiles` now supports wildcard\
-        \ glob patterns.\n  - `helm version --client` deprecation handled/removed\
-        \ in Argo CD (compatibility with newer Helm).\n  - `repo.insecure` is passed\
-        \ to `helm dependency build` (matters for insecure Helm repos)."
-      chart_updates: []
-      features: ['ApplicationSet/cluster-generator behavior changed around Kubernetes
-          version labeling: cluster secrets now expose `argocd.argoproj.io/kubernetes-version`
-          using `vMajor.Minor.Patch` formatting; selectors/filters should be updated
-          accordingly.', 'Support wildcard glob patterns for Helm `valueFiles`, simplifying
-          complex Helm-based app definitions.', 'Controller adds an annotation to
-          pause reconciliation for a specific cluster, useful during maintenance or
-          incident response.', Adds application-level sync option to allow Prune and
-          Delete behavior to be set per-Application., 'Multiple UI enhancements for
-          ApplicationSet views and filtering, plus Source Hydrator support surfaced
-          in the UI.']
-      breaking_changes: ['Cluster version format change impacts ApplicationSet Cluster
-          Generator setups that filter by Kubernetes version when using auto-labeled
-          cluster info: update to `argocd.argoproj.io/kubernetes-version` with `vMajor.Minor.Patch`
-          format.']
-    chart_version: 10.1.0
+    summary: null
+    chart_version: 10.1.3
     images: ['ecr-public.aws.com/docker/library/redis:8.2.3-alpine', 'ghcr.io/dexidp/dex:v2.45.1',
-      'quay.io/argoproj/argocd:v3.4.4']
+      'quay.io/argoproj/argocd:v3.4.5']
   - version: 3.4.1
     kube: ['1.36', '1.35', '1.34']
     requirements: []
@@ -24628,22 +24654,13 @@ addons:
   helm_repository_url: https://argoproj.github.io/argo-helm
   chart_name: argo-workflows
   versions:
-  - version: 4.0.6
+  - version: 4.0.7
     kube: ['1.33', '1.32', '1.31']
     requirements: []
     incompatibilities: []
-    summary:
-      helm_changes: ''
-      chart_updates: []
-      features: [No substantive new features are listed in the provided release notes
-          excerpts; both versions point to the blog/changelog for details., Primary
-          changes for operators are updated binaries and manifests at v4.0.6 download/install
-          URLs.]
-      breaking_changes: [No breaking changes are described in the provided notes;
-          both releases instruct readers to consult the upgrading guide and main changelog
-          for breaking/known issues.]
-    chart_version: 1.0.18
-    images: ['quay.io/argoproj/argocli:v4.0.6', 'quay.io/argoproj/workflow-controller:v4.0.6',
+    summary: null
+    chart_version: 1.0.19
+    images: ['quay.io/argoproj/argocli:v4.0.7', 'quay.io/argoproj/workflow-controller:v4.0.7',
       'registry.k8s.io/kubectl:v1.36.2']
   - version: 4.0.2
     kube: ['1.33', '1.32', '1.31']
@@ -25371,7 +25388,7 @@ addons:
     chart_version: 0.24.0
     images: ['timberio/vector:0.32.0-distroless-libc']
   - version: 0.31.0
-    kube: ['1.27', '1.26', '1.25']
+    kube: ['1.26', '1.25', '1.24']
     requirements: []
     incompatibilities: []
     summary:
@@ -29107,18 +29124,12 @@ addons:
   helm_values: wizApiToken.secret.create=false,imagePullSecret.username=dummy,imagePullSecret.password=dummy
   chart_name: wiz-sensor
   versions:
-  - version: 1.0.11492
+  - version: 1.0.11678
     kube: ['1.36', '1.35', '1.34', '1.33']
     requirements: []
     incompatibilities: []
-    summary:
-      helm_changes: ''
-      chart_updates: ['Release notes provided only include metadata (chart name/version,
-          repo, timestamps, asset). No changelog entries for chart templates, values,
-          or behavior were included.']
-      features: []
-      breaking_changes: []
-    chart_version: 1.0.11492
+    summary: null
+    chart_version: 1.0.11678
     images: ['wizio.azurecr.io/sensor:v1']
   - version: 1.0.3999
     kube: ['1.36', '1.35', '1.34', '1.33']
