@@ -178,6 +178,17 @@ addons:
   release_url: https://github.com/kubernetes-sigs/aws-ebs-csi-driver/releases/tag/v{vsn}
   helm_repository_url: https://kubernetes-sigs.github.io/aws-ebs-csi-driver
   versions:
+  - version: 1.63.0
+    kube: ['1.35', '1.34', '1.33', '1.32', '1.31', '1.30', '1.29', '1.28', '1.27',
+      '1.26', '1.25', '1.24', '1.23', '1.22', '1.21', '1.20']
+    requirements: []
+    incompatibilities: []
+    summary: null
+    chart_version: 2.63.0
+    images: ['public.ecr.aws/csi-components/csi-attacher:v4.12.0-eksbuild.3', 'public.ecr.aws/csi-components/csi-node-driver-registrar:v2.17.0-eksbuild.3',
+      'public.ecr.aws/csi-components/csi-provisioner:v6.3.0-eksbuild.2', 'public.ecr.aws/csi-components/csi-resizer:v2.2.1-eksbuild.1',
+      'public.ecr.aws/csi-components/livenessprobe:v2.19.0-eksbuild.3', 'public.ecr.aws/ebs-csi-driver/aws-ebs-csi-driver:v1.63.0',
+      'us-central1-docker.pkg.dev/k8s-staging-test-infra/images/kubekins-e2e:v20260720-39d457d26c-master']
   - version: 1.62.0
     kube: ['1.35', '1.34', '1.33', '1.32', '1.31', '1.30', '1.29', '1.28', '1.27',
       '1.26', '1.25', '1.24', '1.23', '1.22', '1.21', '1.20']
@@ -902,9 +913,17 @@ addons:
   release_url: https://github.com/kubernetes-sigs/aws-efs-csi-driver/releases/tag/v{vsn}
   helm_repository_url: https://kubernetes-sigs.github.io/aws-efs-csi-driver
   versions:
+  - version: 3.4.0
+    kube: []
+    requirements: []
+    incompatibilities: []
+    summary: null
+    chart_version: 4.4.0
+    images: ['public.ecr.aws/csi-components/csi-node-driver-registrar:v2.17.0-eksbuild.2',
+      'public.ecr.aws/csi-components/csi-provisioner:v6.3.0-eksbuild.1', 'public.ecr.aws/csi-components/livenessprobe:v2.19.0-eksbuild.2',
+      'public.ecr.aws/efs-csi-driver/amazon/aws-efs-csi-driver:v3.4.0']
   - version: 3.3.0
-    kube: ['1.35', '1.34', '1.33', '1.32', '1.31', '1.30', '1.29', '1.28', '1.27',
-      '1.26', '1.25', '1.24', '1.23', '1.22', '1.21', '1.20', '1.19', '1.18', '1.17']
+    kube: []
     requirements: []
     incompatibilities: []
     summary:
@@ -10631,12 +10650,11 @@ addons:
   release_url: https://github.com/aws/amazon-vpc-cni-k8s/releases/tag/v{vsn}
   helm_repository_url: https://aws.github.io/eks-charts
   versions:
-  - version: 1.22.3
+  - version: 1.22.4
     kube: ['1.30', '1.29', '1.28', '1.27', '1.26', '1.25', '1.24', '1.23']
     requirements: []
     incompatibilities: []
     summary: null
-    chart_version: 1.22.3
   - version: 1.22.1
     kube: ['1.30', '1.29', '1.28', '1.27', '1.26', '1.25', '1.24', '1.23']
     requirements: []
@@ -10678,6 +10696,7 @@ addons:
     incompatibilities: []
     summary: null
     chart_version: 1.16.2
+    images: []
   - version: 1.16.0
     kube: ['1.30', '1.29', '1.28', '1.27', '1.26', '1.25', '1.24']
     requirements: []
@@ -11185,6 +11204,7 @@ addons:
     chart_version: 1.19.0
     images: ['quay.io/jetstack/cert-manager-cainjector:v1.19.0', 'quay.io/jetstack/cert-manager-controller:v1.19.0',
       'quay.io/jetstack/cert-manager-startupapicheck:v1.19.0', 'quay.io/jetstack/cert-manager-webhook:v1.19.0']
+    eolAt: '2026-07-08'
   - version: 1.18.0
     kube: ['1.33', '1.32', '1.31', '1.30', '1.29']
     requirements: []
@@ -12302,39 +12322,12 @@ addons:
   helm_values: debug.verbose=flow
   eolApiSlug: cilium
   versions:
-  - version: 1.19.5
+  - version: 1.19.6
     kube: ['1.36', '1.35', '1.34']
     requirements: []
     incompatibilities: []
-    summary:
-      helm_changes: '- **Helm value removed:** `loadBalancer.standalone` was removed.
-        If your values file sets it, delete it and rely on the remaining `loadBalancer.*`
-        settings.
-
-        - **Helm value removed (L2 announcements):** `l2podAnnouncements.interface`
-        was removed because it could render an agent config key that is no longer
-        recognized and may cause agent crash-loops when L2 pod announcements are enabled.
-        **Use `l2podAnnouncements.interfacePattern` instead.**
-
-        - **Helm chart improvement:** charts now allow overriding a `registry_prefix`
-        (useful for private registries/mirrors). (No action needed unless you want
-        to adopt it.)
-
-        '
-      chart_updates: [Removed deprecated/unused Helm options related to Service LB
-          and L2 pod announcements to prevent misconfiguration and crash-loops., Helm
-          chart now supports overriding `registry_prefix` for image registry customization.,
-        Helm packaging updated to ignore `tmpl` files via `.helmignore` (no user action).]
-      features: ['Troubleshoot commands for kvstore and clustermesh report more information,
-          which can help during incident response and upgrade validation.', Internal
-          load-balancer backend representation was refactored to scale better when
-          many Services share the same backend (helps large clusters with shared backends).]
-      breaking_changes: ['`loadBalancer.standalone` Helm option was removed; upgrades
-          will fail or behave unexpectedly if your values still reference it.', '`l2podAnnouncements.interface`
-          Helm value was removed; if you used it (especially with L2 pod announcements
-          enabled), switch to `l2podAnnouncements.interfacePattern` to avoid agent
-          crash-loops.']
-    chart_version: 1.19.5
+    summary: null
+    chart_version: 1.19.6
     images: []
   - version: 1.19.4
     kube: ['1.36', '1.35', '1.34']
@@ -14959,7 +14952,7 @@ addons:
         '`--scale-down-enabled` is deprecated; plan to remove/replace usage in automation/scripts.',
         AWS provider switches to AWS SDK v2 and deprecates v1; custom builds/plugins
           depending on v1 need adjustment.]
-    chart_version: 9.58.0
+    chart_version: 9.59.0
     images: ['registry.k8s.io/autoscaling/cluster-autoscaler:v1.35.0']
   - version: 1.34.2
     kube: ['1.34']
@@ -16314,6 +16307,13 @@ addons:
   release_url: https://github.com/external-secrets/external-secrets/releases/tag/v{vsn}
   helm_repository_url: https://charts.external-secrets.io
   versions:
+  - version: 2.8.0
+    kube: ['1.35']
+    requirements: []
+    incompatibilities: []
+    summary: null
+    chart_version: 2.8.0
+    images: ['ghcr.io/external-secrets/external-secrets:v2.8.0']
   - version: 2.7.0
     kube: ['1.35']
     requirements: []
@@ -18636,22 +18636,16 @@ addons:
   helm_repository_url: https://prometheus-community.github.io/helm-charts
   chart_changelog_url: https://raw.githubusercontent.com/prometheus-community/helm-charts/refs/heads/main/charts/kube-prometheus-stack/UPGRADE.md
   versions:
-  - version: 87.15.2
+  - version: 87.19.0
     kube: ['1.35', '1.34', '1.33', '1.32', '1.31', '1.30', '1.29', '1.28', '1.27',
       '1.26', '1.25']
     requirements: []
     incompatibilities: []
-    summary:
-      helm_changes: ''
-      chart_updates: [Fixes `externalUrl` generation for Alertmanager and Prometheus
-          when an ingress/route is configured (chart template logic fix)., (From 87.15.1)
-          Bumps the bundled `kube-state-metrics` subchart/release to v7.8.1.]
-      features: []
-      breaking_changes: []
-    chart_version: 87.15.2
-    images: ['docker.io/grafana/grafana:13.1.0', 'ghcr.io/jkroepke/kube-webhook-certgen:1.8.4',
+    summary: null
+    chart_version: 87.19.0
+    images: ['docker.io/grafana/grafana:13.1.1', 'ghcr.io/jkroepke/kube-webhook-certgen:1.8.4',
       'quay.io/kiwigrid/k8s-sidecar:2.8.1', 'quay.io/prometheus-operator/prometheus-operator:v0.92.1',
-      'quay.io/prometheus/alertmanager:v0.33.1', 'quay.io/prometheus/node-exporter:v1.12.0-distroless',
+      'quay.io/prometheus/alertmanager:v0.33.1', 'quay.io/prometheus/node-exporter:v1.12.1-distroless',
       'quay.io/prometheus/prometheus:v3.13.1-distroless', 'registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.19.1']
   - version: 87.15.1
     kube: ['1.35', '1.34', '1.33', '1.32', '1.31', '1.30', '1.29', '1.28', '1.27',
@@ -24540,7 +24534,7 @@ addons:
           Kubernetes version parsing with Helm 3.19+, any custom logic depending on
           the old version interpretation should be re-validated (especially AppSet
           cluster generators and templating conditions).']
-    chart_version: 10.1.3
+    chart_version: 10.1.4
     images: ['ecr-public.aws.com/docker/library/redis:8.2.3-alpine', 'ghcr.io/dexidp/dex:v2.45.1',
       'quay.io/argoproj/argocd:v3.4.5']
   - version: 3.4.1
@@ -25051,22 +25045,13 @@ addons:
   helm_repository_url: https://argoproj.github.io/argo-helm
   chart_name: argo-workflows
   versions:
-  - version: 4.0.7
+  - version: 4.0.8
     kube: ['1.33', '1.32', '1.31']
     requirements: []
     incompatibilities: []
-    summary:
-      helm_changes: ''
-      chart_updates: []
-      features: ["Release notes provided for v4.0.2 and v4.0.7 are \u201CQuick Start\u201D\
-          \ boilerplate (install/CLI download instructions) and do not enumerate feature-level\
-          \ changes between these patch versions.", 'Operationally, v4.0.7 updates
-          the controller/server manifests (install.yaml) and CLI binaries to the v4.0.7
-          tag; treat it as a patch upgrade within 4.0.x.']
-      breaking_changes: [No breaking changes are listed in the provided notes; they
-          only point to the upstream upgrading guide and main CHANGELOG for details.]
-    chart_version: 1.0.19
-    images: ['quay.io/argoproj/argocli:v4.0.7', 'quay.io/argoproj/workflow-controller:v4.0.7',
+    summary: null
+    chart_version: 1.0.21
+    images: ['quay.io/argoproj/argocli:v4.0.8', 'quay.io/argoproj/workflow-controller:v4.0.8',
       'registry.k8s.io/kubectl:v1.36.2']
   - version: 4.0.2
     kube: ['1.33', '1.32', '1.31']
@@ -25328,6 +25313,13 @@ addons:
   release_url: https://github.com/vectordotdev/vector/releases/tag/v{vsn}
   helm_repository_url: https://helm.vector.dev/
   versions:
+  - version: 0.57.0
+    kube: ['1.36', '1.35', '1.34']
+    requirements: []
+    incompatibilities: []
+    summary: null
+    chart_version: 0.57.0
+    images: ['docker.io/timberio/vector:0.57.0-distroless-libc']
   - version: 0.56.0
     kube: ['1.36', '1.35', '1.34']
     requirements: []
@@ -27918,13 +27910,13 @@ addons:
   helm_repository_url: https://helm.elastic.co
   readme_url: https://github.com/elastic/elasticsearch/blob/main/README.asciidoc
   versions:
-  - version: 9.4.3
+  - version: 9.4.4
     kube: ['1.36', '1.35', '1.34']
     requirements: []
     incompatibilities: []
     summary: null
-    chart_version: 9.4.3
-    images: ['docker.elastic.co/elastic-agent/elastic-agent:9.4.3', 'registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.16.0']
+    chart_version: 9.4.4
+    images: ['docker.elastic.co/elastic-agent/elastic-agent:9.4.4', 'registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.16.0']
   - version: 9.4.0
     kube: ['1.36', '1.35', '1.34']
     requirements: []
@@ -28486,6 +28478,13 @@ addons:
   helm_repository_url: oci://ghcr.io/kserve/charts/kserve
   chart_name: kserve
   versions:
+  - version: 0.18.1
+    kube: ['1.35', '1.34', '1.33', '1.32']
+    requirements: []
+    incompatibilities: []
+    summary: null
+    chart_version: v0.18.1
+    images: []
   - version: 0.18.0
     kube: ['1.35', '1.34', '1.33', '1.32']
     requirements: []
@@ -28869,63 +28868,15 @@ addons:
   helm_repository_url: https://kubescape.github.io/helm-charts
   helm_values: clusterName=example,account=example
   versions:
-  - version: 1.40.2
+  - version: 1.40.3
     kube: ['1.36', '1.35', '1.34']
     requirements: []
     incompatibilities: []
-    summary:
-      helm_changes: "## Helm values / behavior changes to review\n\n- **New/changed\
-        \ Grype offline DB CronJob knobs** (chart 1.40.2):\n  - **CronJob schedule\
-        \ is now configurable** via `values.yaml`.\n  - **CronJob history limits are\
-        \ now configurable** via `values.yaml`.\n  - **A dedicated ServiceAccount\
-        \ is enforced/used** for the `grype-offline-db` components.\n\n- **grype-offline-db\
-        \ health probes added** (chart 1.40.2): liveness/readiness probes are now\
-        \ defined for the `grype-offline-db` Deployment (may affect clusters with\
-        \ strict probe/PSA policies or if endpoints are slow to become ready).\n\n\
-        - **kubevuln tmp-dir PVC rendering fix when disabled** (chart 1.40.2): if\
-        \ you previously disabled the tmp-dir PVC and had template/render issues,\
-        \ this should now work as expected.\n\n- **Certificate strategy hook changed\
-        \ to initContainer** (chart 1.40.2): any previous reliance on Helm hooks ordering/behavior\
-        \ for certificate strategy may change; review any customizations around cert\
-        \ provisioning.\n\n- **Service discovery components removed** (chart 1.40.2):\
-        \ if you previously enabled/relied on chart-managed service-discovery/sidecar\
-        \ behavior, verify the new model (services are now retrieved from the API\
-        \ in upstream components) and remove any values that referenced the old discovery\
-        \ components.\n"
-      chart_updates: [Removed redundant `GOMAXPROCS` setting from templates (1.40.0).,
-        Added ArgoCD GitOps support for Kubescape Helm (1.40.0)., Added artifact provenance
-          attestation for Helm chart releases (1.40.0)., Set `GOMEMLIMIT` to ~80%
-          of memory limit for node-agent + kubevuln (1.40.0) and later improved autoscaler
-          computation per node group in operator (1.40.0)., Extended rules CRD with
-          `profileDataRequired` for rule-aware profile projection (1.40.0)., Replaced
-          host sensor with node-agent sensing (1.40.0)., Ensured `grype-offline-db`
-          uses a dedicated ServiceAccount (1.40.2)., Made `grype-offline-db` CronJob
-          schedule and history limits configurable (1.40.2)., Added liveness/readiness
-          probes to `grype-offline-db` deployment (1.40.2)., Fixed kubevuln tmp-dir
-          PVC template rendering when disabled (1.40.2)., Removed service discovery
-          components from the chart (1.40.2)., Changed certificate strategy from Helm
-          hook to initContainer (1.40.2).]
-      features: [ArgoCD/GitOps-oriented Helm support was added to ease managing Kubescape
-          via GitOps workflows., Rule-aware profile projection support was introduced
-          by adding `profileDataRequired` to the rules CRD and corresponding node-agent
-          behavior., 'Resource/memory tuning improvements: chart sets `GOMEMLIMIT`
-          based on container limits (and operator autoscaler computes it per node
-          group), reducing OOM risk and improving performance.', Service discovery
-          was simplified by removing sidecar/discovery components; services are retrieved
-          from the API in the Kubescape stack., Kubescape CLI added support for TLS
-          key configuration via env vars and introduced an in-cluster ControlInput
-          CRD for control configuration.]
-      breaking_changes: ['Service discovery components/sidecars were removed; if your
-          deployment depended on the old service-discovery sidecar or chart-managed
-          discovery resources, you must validate the new API-based discovery path
-          and adjust any custom values/manifests.', 'Certificate strategy behavior
-          changed from a Helm hook to an initContainer; if you depended on hook timing
-          or had hook-related policies, re-validate startup ordering and any custom
-          certificate handling.', 'Host sensor was replaced with node-agent sensing
-          (introduced in 1.40.0); clusters relying on the old host-sensor model should
-          verify node-agent permissions, DaemonSet behavior, and expected telemetry.']
-    chart_version: 1.40.2
-    images: []
+    summary: null
+    chart_version: 1.40.3
+    images: ['quay.io/kubescape/http-request:v0.2.20', 'quay.io/kubescape/kubescape:v4.0.11',
+      'quay.io/kubescape/kubevuln:v0.3.159', 'quay.io/kubescape/node-agent:v0.3.158',
+      'quay.io/kubescape/operator:v0.2.159', 'quay.io/kubescape/storage:v0.0.297']
   - version: 1.40.0
     kube: ['1.36', '1.35', '1.34']
     requirements: []
