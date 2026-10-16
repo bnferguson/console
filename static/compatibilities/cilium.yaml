@@ -4,6 +4,15 @@ helm_repository_url: https://helm.cilium.io/
 helm_values: debug.verbose=flow
 eolApiSlug: cilium
 versions:
+- version: 1.20.3
+  kube: ['1.37', '1.36', '1.35']
+  requirements: []
+  incompatibilities: []
+  summary: null
+  chart_version: 1.20.3
+  images: ['quay.io/cilium/cilium-envoy:v1.38.6-1791537840-00e749f11f69334c625e53fc1ce2fc6c7f34a51f@sha256:d6c8c0c91954d1885026d82a31b341f37dcd34a4b127fdaf1587e43ddd224cef',
+    'quay.io/cilium/cilium:v1.20.3@sha256:95cfa5c2427cc6b452c00908778d0566311f572589284af949d06a013db1a849',
+    'quay.io/cilium/operator-generic:v1.20.3@sha256:efdd8d89d6d8f63d21a065fa2f9e17614a2b3ac9371b221af9355f63829e2dbc']
 - version: 1.20.2
   kube: ['1.37', '1.36', '1.35']
   requirements: []
@@ -821,8 +830,7 @@ versions:
         series are expected to be non-breaking, but Helm schema validation may block
         upgrades if you still use removed/deprecated values.']
   chart_version: 1.15.12
-  images: ['quay.io/cilium/cilium:v1.15.12@sha256:d1793b67d976e1bc0a4ab01b34c94adfcd35a8be7612d04c6d618bf25f50f0d1',
-    'quay.io/cilium/operator-generic:v1.15.12@sha256:e48d863367bfd39843917400aa7454ca6a4af74f995cf29a2edb81d7d13c7277']
+  images: []
   eolAt: '2025-07-29'
 - version: 1.15.8
   kube: ['1.31', '1.30', '1.29']
