@@ -11,6 +11,14 @@ versions:
   summary: null
   chart_version: 1.11.0
   images: ['public.ecr.aws/dynatrace/dynatrace-operator:v1.11.0']
+- version: 1.10.3
+  kube: ['1.37', '1.36', '1.35', '1.34', '1.33', '1.32', '1.31', '1.30', '1.29', '1.28',
+    '1.27']
+  requirements: []
+  incompatibilities: []
+  summary: null
+  chart_version: 1.10.3
+  images: ['public.ecr.aws/dynatrace/dynatrace-operator:v1.10.3']
 - version: 1.10.2
   kube: ['1.36', '1.35', '1.34', '1.33', '1.32', '1.31', '1.30', '1.29', '1.28', '1.27']
   requirements: []
@@ -68,6 +76,14 @@ versions:
         skipping `v1.10.0` and upgrading to `v1.10.1` instead.']
   chart_version: 1.10.0
   images: ['public.ecr.aws/dynatrace/dynatrace-operator:v1.10.0']
+- version: 1.9.1
+  kube: ['1.37', '1.36', '1.35', '1.34', '1.33', '1.32', '1.31', '1.30', '1.29', '1.28',
+    '1.27']
+  requirements: []
+  incompatibilities: []
+  summary: null
+  chart_version: 1.9.1
+  images: ['public.ecr.aws/dynatrace/dynatrace-operator:v1.9.1']
 - version: 1.9.0
   kube: ['1.36', '1.35', '1.34', '1.33', '1.32', '1.31', '1.30', '1.29', '1.28', '1.27']
   requirements: []
