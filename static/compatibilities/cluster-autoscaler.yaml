@@ -4,6 +4,13 @@ release_url: https://github.com/kubernetes/autoscaler/releases/tag/cluster-autos
 helm_repository_url: https://kubernetes.github.io/autoscaler
 chart_name: cluster-autoscaler
 versions:
+- version: 1.37.0
+  kube: ['1.37']
+  requirements: []
+  incompatibilities: []
+  summary: null
+  chart_version: 9.60.0
+  images: ['registry.k8s.io/autoscaling/cluster-autoscaler:v1.37.0']
 - version: 1.35.0
   kube: ['1.35']
   requirements: []
