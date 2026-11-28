@@ -4,6 +4,13 @@ helm_repository_url: https://victoriametrics.github.io/helm-charts
 readme_url: https://github.com/VictoriaMetrics/operator/blob/master/README.md
 icon: https://dashboard.snapcraft.io/site_media/appmedia/2020/11/output-onlinepngtools.png
 versions:
+- version: 0.76.0
+  kube: ['1.37', '1.36', '1.35']
+  requirements: []
+  incompatibilities: []
+  summary: null
+  chart_version: 0.69.0
+  images: ['victoriametrics/operator:v0.76.0']
 - version: 0.75.0
   kube: ['1.37', '1.36', '1.35']
   requirements: []
@@ -1303,8 +1310,15 @@ versions:
         alerting rules are configured.']
   chart_version: 0.27.9
   images: ['victoriametrics/operator:v0.39.3']
-- version: 0.39.0
+- version: 0.39.2
   kube: ['1.28', '1.27', '1.26']
+  requirements: []
+  incompatibilities: []
+  summary: null
+  chart_version: 0.27.5
+  images: ['victoriametrics/operator:v0.39.2']
+- version: 0.39.0
+  kube: ['1.27', '1.26', '1.25']
   requirements: []
   incompatibilities: []
   summary:
@@ -1321,7 +1335,7 @@ versions:
   chart_version: 0.27.3
   images: ['victoriametrics/operator:v0.39.0']
 - version: 0.38.0
-  kube: ['1.28', '1.27', '1.26']
+  kube: ['1.27', '1.26', '1.25']
   requirements: []
   incompatibilities: []
   summary:
